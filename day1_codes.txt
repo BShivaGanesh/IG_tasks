@@ -1,0 +1,245 @@
+
+
+public class Main
+{
+    public static boolean isPerfectNumber(int n){
+        int sum=0;
+        for(int i=1;i<n;i++){
+            if(n%i==0){
+                sum+=i;
+            }
+        }
+        if(sum==n){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public static long factorial(int n){
+        if(n==0 || n==1){
+            return 1;
+        }
+        return n*factorial(n-1);
+    }
+    
+    public static boolean isPrime(int n){
+        for(int i=2;i<=n/2;i++){
+            if(n%i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static long sumOfPrimes(int n){
+        long sum=0;
+        while(n > 1){
+            if(isPrime(n)){
+                sum+=n;
+            }
+            n--;
+        }
+        return sum;
+    }
+    
+    public static boolean isArmstrongNumber(int n){
+        int temp = n;
+        int len=0;
+        while(temp !=0){
+            temp/=10;
+            len++;
+        }
+        int sum=0;
+        int temp1 = n;
+        while(temp1 !=0){
+            int rem = temp1%10;
+            sum+=rem*rem*rem;
+            temp1/=10;
+        }
+        if(sum == n){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public static int reverseNumber(int n){
+        int rev=0;
+        while(n !=0 ){
+            int rem = n%10;
+            rev= rev*10 + rem;
+            n/=10;
+        }
+        return rev;
+    }
+    
+    public static boolean isPalindrome(int n){
+        int rev = reverseNumber(n);
+        if(rev == n){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public static int sumOfFibo(int n){
+        int a=0,b=1;
+        int c,sum=0;
+        while(n != 0){
+            c=a+b;
+            sum+=a;
+            a=b;
+            b=c;
+            n--;
+        }
+        return sum;
+    } 
+    
+    public static String decimalTOBinary(int n){
+        int rem = n%10;
+        
+    }
+	public static void main(String[] args) {
+	//	System.out.println(isPerfectNumber(4));
+	//	System.out.println(factorial(4));
+	//	System.out.println(isPrime(5));
+	//	System.out.println(sumOfPrimes(4));
+	//	System.out.println(isArmstrongNumber(155));
+	 //   System.out.println(reverseNumber(102));
+	   // System.out.println(isPalindrome(101));
+	  // System.out.println(sumOfFibo(3));
+	}
+}
+
+
+
+
+
+code - 2
+
+
+
+abstract class Game {
+   abstract void displayInfo();
+}
+
+class Cricket extends Game{
+    @Override
+    void displayInfo(){
+        System.out.println("Cricket");
+    }
+}
+class Football extends Game{
+    @Override
+    void displayInfo(){
+        System.out.println("Football");
+    }
+}
+class Tennis extends Game{
+    @Override
+    void displayInfo(){
+        System.out.println("Tennis");
+    }
+}
+class Main {
+    public static void main(String[] args){
+        Game[] g = new Game[5];
+        Game c= new Cricket();
+        Game f = new Football();
+        Game t = new Tennis();
+        g[0]= c;
+        g[1] = f;
+        g[2]=c;
+        g[3] = t;
+        g[4]=f;
+        g[4].displayInfo();
+    }
+}
+
+
+code - 3
+
+
+abstract class Shape{
+   static int len=5;
+   abstract void calcArea();
+}
+
+class Rectangle extends Shape{
+    int breadth;
+    Rectangle(int b){
+        breadth=b;
+    }
+    void calcArea(){
+        System.out.println("Area of Rectangle:" + len*breadth);
+    }
+}
+
+class Triangle extends Shape{
+    int height;
+    Triangle(int h){
+        height=h;
+    }
+    void calcArea(){
+        System.out.println("Area of Triangle:" + 0.5*len*height);
+    }
+}
+
+class Square extends Shape{
+    void calcArea(){
+        System.out.println("Area of Square:" + len*len);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Shape[] sh = new Shape[3];
+	    Shape r = new Rectangle(4);
+	    Shape t = new Triangle(4);
+	    Shape s = new Square();
+	    sh[0]=r;
+	    sh[1]=t;
+	    sh[2]=s;
+	    sh[0].calcArea();
+	    sh[1].calcArea();
+	    sh[2].calcArea();
+	}
+}
+
+
+code - 4
+
+
+class PhoneNumber{
+    String areacode;
+    String exchange;
+    String extension;
+    PhoneNumber(String areacode , String exchange , String extension){
+        this.areacode=areacode;
+        this.exchange=exchange;
+        this.extension=extension;
+    }
+    String generateNumber(){
+        String res = "(" + areacode + ")" + " " + exchange +"-" +extension;
+        System.out.println("Phone Number : " + res);
+        return res;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    PhoneNumber obj = new PhoneNumber("800" , "867" , "5309");
+	   String p=  obj.generateNumber();
+	    obj = new PhoneNumber("800" , "867" , "5309");
+	   String q=  obj.generateNumber(); 
+	   if(p.equals(q)){
+	       System.out.println("true");
+	   }
+	   else{
+	       System.out.println("false");
+	   }
+	}
+}
